@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.11)
 project(rtiexamples-dynamic-data-access-union-discriminator)
 set(CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../../resources/cmake"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../resources/cmake"
 )
 
 add_executable(dynamic_data_union_example_cxx2
@@ -28,3 +28,7 @@ if(CMAKE_SYSTEM_NAME MATCHES "Linux" AND CMAKE_CXX_COMPILER_ID MATCHES "GNU")
         PROPERTIES
             LINK_FLAGS -Wl,--no-as-needed)
 endif()
+
+install(TARGETS
+  dynamic_data_union_example_cxx2
+  DESTINATION bin/${PROJECT_NAME})

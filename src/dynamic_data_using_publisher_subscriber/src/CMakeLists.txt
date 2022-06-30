@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.11)
 project(rtiexamples-dynamic-data-using-publisher-subscriber)
 set(CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../../resources/cmake"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../resources/cmake"
 )
 
 # Include ConnextDdsAddExample.cmake from resources/cmake
@@ -18,3 +18,8 @@ connextdds_add_example(
     LANG "C++11"
     NO_REQUIRE_QOS
 )
+
+install(FILES
+  ${CMAKE_CURRENT_BINARY_DIR}/Shapes_publisher
+  ${CMAKE_CURRENT_BINARY_DIR}/Shapes_subscriber
+  DESTINATION bin/${PROJECT_NAME})

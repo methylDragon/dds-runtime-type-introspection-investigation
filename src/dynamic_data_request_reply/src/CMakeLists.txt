@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.11)
 project(rtiexamples-dynamic-data-request_reply)
 set(CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../../resources/cmake"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../resources/cmake"
 )
 
 # Find the RTI Connext DDS libraries
@@ -65,3 +65,8 @@ if(CMAKE_SYSTEM_NAME MATCHES "Linux" AND CMAKE_CXX_COMPILER_ID MATCHES "GNU")
         PROPERTIES
             LINK_FLAGS -Wl,--no-as-needed)
 endif()
+
+install(TARGETS
+  prime_number_requester_cxx2
+  prime_number_replier_cxx2
+  DESTINATION bin/${PROJECT_NAME})
