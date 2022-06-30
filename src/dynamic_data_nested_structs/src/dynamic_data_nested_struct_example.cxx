@@ -49,6 +49,7 @@ int main()
     // Create a DynamicData instance for each type
     DynamicData outer_data(outer_type);
     DynamicData inner_data(inner_type);
+    DynamicData inner_data_b(inner_type);
 
     std::cout << " Connext Dynamic Data Nested Struct Example " << std::endl
               << "--------------------------------------------" << std::endl
@@ -62,14 +63,22 @@ int main()
     inner_data.value("x", 3.14159);
     inner_data.value("y", 2.71828);
 
+    inner_data_b.value("x", 3.0);
+    inner_data_b.value("y", 0.0);
+
     // Copy inner_data values in inner_struct of outer_data
     std::cout << " Setting the initial values of struct " << std::endl
               << "--------------------------------------" << std::endl;
-    outer_data.value("inner", inner_data);
+    outer_data.value("inner", inner_data_b);
     std::cout << outer_data;
 
     // Clear inner_data members to copy data from outer_data
-    inner_data.clear_all_members();
+
+    // NOTE(CH3): It seems this clear_all_members() was unecessary...
+    // Having it or not having it had no effect....
+    // (but it might be just because it's primitive?)
+    // inner_data.clear_all_members();
+
     inner_data = outer_data.value<DynamicData>("inner");
     std::cout << std::endl
               << " + copied struct from outer_data" << std::endl
