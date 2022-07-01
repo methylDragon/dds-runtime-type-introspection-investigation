@@ -1,4 +1,4 @@
-# Example code: Using Dynamic Data to publish and subscribe
+# Example Code: Nested Struct in Dynamic Data
 
 ## Building the Example :wrench:
 
@@ -35,58 +35,70 @@ regular build process.
 
 ## Running the Example
 
-### Publisher/Subscriber in command prompt
+Run the following command from the example directory to execute the application.
 
-In two separate command prompt windows for the publisher and subscriber.
-
-On *Windows* systems run:
+On *UNIX* systems:
 
 ```sh
-Shapes_publisher.exe  -d <domain_id> -s <samples_to_send>
-Shapes_subscriber.exe -d <domain_id> -s <samples_to_receive>
+./dynamic_data_nested_struct_example
 ```
 
-On *UNIX* systems run:
+On *Windows* Systems:
 
 ```sh
-./Shapes_publisher  -d <domain_id> -s <samples_to_send>
-./Shapes_subscriber -d <domain_id> -s <samples_to_receive>
+dynamic_data_nested_struct_example
 ```
 
-The applications accept up to two arguments:
+## Output
 
-1.  The `<domain_id>`. Both applications must use the same domain ID in order to
-    communicate. The default is 0.
+```plaintext
+Connext Dynamic Data Nested Struct Example
+--------------------------------------------
+Data Type
+-----------
+@appendable
+struct InnerStruct {
+    @id(0) double x;
+    @id(1) double y;
+};
+@appendable
+struct OuterStruct {
+    @id(0) InnerStruct inner;
+};
 
-2.  How long the examples should run, measured in samples. The default is
-    infinite.
+Setting the initial values of struct
+--------------------------------------
+        inner:
+           x: 3.141590
+           y: 2.718280
 
-### Interconnection between this example and *Shapes Demo* tool
++ copied struct from outer_data
++ inner_data value
+        x: 3.141590
+        y: 2.718280
 
-First of all, remember that you have to work in the same domain both in *Shape
-Demo* and your command prompt.
++ setting new values to inner_data
+        x: 1.000000
+        y: 0.000010
 
-1.  Publish using this example and subscribe using *Shapes Demo*:
++ current outer_data value
+        inner:
+           x: 3.141590
+           y: 2.718280
 
-    1.  Open a new *Shapes Demo* window.
 
-    2.  Create a new Square subscriber with default options.
+loan/unloan API
+-----------------
++ loan member called
+        x: 3.141590
+        y: 2.718280
 
-    3.  Run the publisher in a new command prompt like explained before (use the
-        `<sample #>` = 0 option to run an indefinitely).
-
-        You will see a Square moving from left to right. Also, its size will
-        increase until it reaches a maximum size. When the max size or the end
-        of the canvas are reached, it restarts.
-
-2.  Subscribe using this example and publish using *Shapes Demo*:
-
-3.  Open a new command prompt and create a new subscriber like explained before.
-
-4.  Create a publisher (Square) in *Shapes Demo*.
-
-    You will see the full description of the data published by *Shapes Demo* in
-    your command prompt.
++ setting new values to loaned_data
++ current outer_data value
+        inner:
+           x: 1.000000
+           y: 0.000010
+```
 
 ## Customizing the Build
 
@@ -154,7 +166,7 @@ to:
 
 You will find the definition of connextdds_add_example, along with detailed
 documentation, in
-[resources/cmake/ConnextDdsAddExample.cmake](../../../../resources/cmake/ConnextDdsAddExample.cmake).
+[resources/cmake/ConnextDdsAddExample.cmake](../../../resources/ConnextDdsAddExample.cmake).
 
 For a more comprehensive example on how to build an RTI Connext DDS application
 using CMake, please refer to the

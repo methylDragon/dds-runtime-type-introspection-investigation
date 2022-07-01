@@ -4,10 +4,10 @@
 # must display this notice unaltered.
 # This code contains trade secrets of Real-Time Innovations, Inc.
 cmake_minimum_required(VERSION 3.11)
-project(rtiexamples-dynamic-data-using-publisher-subscriber)
+project(cpp-rtiexamples-dynamic-data-using-publisher-subscriber)
 set(CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../resources/cmake"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../resources"
 )
 
 # Include ConnextDdsAddExample.cmake from resources/cmake

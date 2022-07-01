@@ -4,10 +4,10 @@
 # must display this notice unaltered.
 # This code contains trade secrets of Real-Time Innovations, Inc.
 cmake_minimum_required(VERSION 3.11)
-project(rtiexamples-connext-dds)
+project(cpp-rtiexamples-connext-dds)
 set(CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
-    "${CMAKE_CURRENT_SOURCE_DIR}/../resources/cmake"
+    "${CMAKE_CURRENT_SOURCE_DIR}/resources/cmake"
 )
 
 include(ConnextDdsAddExamplesSubdirectories)
@@ -67,7 +67,7 @@ set(example_subdirs
   # "custom_transport"
   # "deadline_contentfilter"
   # "discovery_snapshot"
-  "dynamic_data_using_publisher_subscriber"
+  "cpp/dynamic_data_using_publisher_subscriber"
   # "flat_data_api"
   # "flat_data_latency"
   # "get_publishers"
@@ -96,10 +96,10 @@ set(example_subdirs
   # "build_systems"
   # "compression"
   # "detect_samples_dropped"
-  "dynamic_data_access_union_discriminator"
-  "dynamic_data_nested_structs"
-  "dynamic_data_request_reply"
-  "dynamic_data_sequences"
+  "cpp/dynamic_data_access_union_discriminator"
+  "cpp/dynamic_data_nested_structs"
+  "cpp/dynamic_data_request_reply"
+  "cpp/dynamic_data_sequences"
   # "fragmented_data_statistics"
   # "group_coherent_presentation"
   # "instance_statistics"

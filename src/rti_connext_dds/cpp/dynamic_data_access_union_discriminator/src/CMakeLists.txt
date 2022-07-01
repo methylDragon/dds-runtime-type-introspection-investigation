@@ -4,10 +4,10 @@
 # must display this notice unaltered.
 # This code contains trade secrets of Real-Time Innovations, Inc.
 cmake_minimum_required(VERSION 3.11)
-project(rtiexamples-dynamic-data-access-union-discriminator)
+project(cpp-rtiexamples-dynamic-data-access-union-discriminator)
 set(CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../resources/cmake"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../resources"
 )
 
 add_executable(dynamic_data_union_example_cxx2

@@ -1,4 +1,4 @@
-# Example: Sequences in Dynamic Data
+# Example Code: @EXAMPLE_NAME@
 
 ## Building the Example :wrench:
 
@@ -35,19 +35,27 @@ regular build process.
 
 ## Running the Example
 
-Run the following command from the example directory to execute the application.
+In two separate command prompt windows for the publisher and subscriber. Run the
+following commands from the example directory (this is necessary to ensure the
+application loads the QoS defined in *USER_QOS_PROFILES.xml*):
 
-On *UNIX* systems:
-
-```sh
-./dynamic_data_sequences
-```
-
-On *Windows* Systems:
+On *Windows* systems run:
 
 ```sh
-dynamic_data_sequences
+@IDL_NAME@_publisher.exe   @PUB_ARGS@
+@IDL_NAME@_subscriber.exe  @SUB_ARGS@
 ```
+
+On *UNIX* systems run:
+
+```sh
+./@IDL_NAME@_publisher   @PUB_ARGS@
+./@IDL_NAME@_subscriber  @SUB_ARGS@
+```
+
+The applications accept up to two arguments:
+
+@EXAMPLE_ARGS_EXPLANATION@
 
 ## Customizing the Build
 
@@ -115,7 +123,7 @@ to:
 
 You will find the definition of connextdds_add_example, along with detailed
 documentation, in
-[resources/cmake/ConnextDdsAddExample.cmake](../../../../resources/cmake/ConnextDdsAddExample.cmake).
+[resources/cmake/ConnextDdsAddExample.cmake](../../../resources/ConnextDdsAddExample.cmake).
 
 For a more comprehensive example on how to build an RTI Connext DDS application
 using CMake, please refer to the

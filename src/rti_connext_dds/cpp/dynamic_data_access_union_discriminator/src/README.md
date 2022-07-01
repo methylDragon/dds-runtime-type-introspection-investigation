@@ -1,4 +1,4 @@
-# Example Code: Nested Struct in Dynamic Data
+# Example code: Using Dynamic Data to publish and subscribe
 
 ## Building the Example :wrench:
 
@@ -39,65 +39,14 @@ Run the following command from the example directory to execute the application.
 
 On *UNIX* systems:
 
-```sh
-./dynamic_data_nested_struct_example
+```bash
+./dynamic_data_union_example
 ```
 
 On *Windows* Systems:
 
-```sh
-dynamic_data_nested_struct_example
-```
-
-## Output
-
-```plaintext
-Connext Dynamic Data Nested Struct Example
---------------------------------------------
-Data Type
------------
-@appendable
-struct InnerStruct {
-    @id(0) double x;
-    @id(1) double y;
-};
-@appendable
-struct OuterStruct {
-    @id(0) InnerStruct inner;
-};
-
-Setting the initial values of struct
---------------------------------------
-        inner:
-           x: 3.141590
-           y: 2.718280
-
-+ copied struct from outer_data
-+ inner_data value
-        x: 3.141590
-        y: 2.718280
-
-+ setting new values to inner_data
-        x: 1.000000
-        y: 0.000010
-
-+ current outer_data value
-        inner:
-           x: 3.141590
-           y: 2.718280
-
-
-loan/unloan API
------------------
-+ loan member called
-        x: 3.141590
-        y: 2.718280
-
-+ setting new values to loaned_data
-+ current outer_data value
-        inner:
-           x: 1.000000
-           y: 0.000010
+```bash
+dynamic_data_union_example
 ```
 
 ## Customizing the Build
@@ -166,7 +115,7 @@ to:
 
 You will find the definition of connextdds_add_example, along with detailed
 documentation, in
-[resources/cmake/ConnextDdsAddExample.cmake](../../../../resources/cmake/ConnextDdsAddExample.cmake).
+[resources/cmake/ConnextDdsAddExample.cmake](../../../resources/ConnextDdsAddExample.cmake).
 
 For a more comprehensive example on how to build an RTI Connext DDS application
 using CMake, please refer to the

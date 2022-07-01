@@ -1,4 +1,4 @@
-# Example Code: @EXAMPLE_NAME@
+# Example code: Using Dynamic Data to publish and subscribe
 
 ## Building the Example :wrench:
 
@@ -35,27 +35,58 @@ regular build process.
 
 ## Running the Example
 
-In two separate command prompt windows for the publisher and subscriber. Run the
-following commands from the example directory (this is necessary to ensure the
-application loads the QoS defined in *USER_QOS_PROFILES.xml*):
+### Publisher/Subscriber in command prompt
+
+In two separate command prompt windows for the publisher and subscriber.
 
 On *Windows* systems run:
 
 ```sh
-@IDL_NAME@_publisher.exe   @PUB_ARGS@
-@IDL_NAME@_subscriber.exe  @SUB_ARGS@
+Shapes_publisher.exe  -d <domain_id> -s <samples_to_send>
+Shapes_subscriber.exe -d <domain_id> -s <samples_to_receive>
 ```
 
 On *UNIX* systems run:
 
 ```sh
-./@IDL_NAME@_publisher   @PUB_ARGS@
-./@IDL_NAME@_subscriber  @SUB_ARGS@
+./Shapes_publisher  -d <domain_id> -s <samples_to_send>
+./Shapes_subscriber -d <domain_id> -s <samples_to_receive>
 ```
 
 The applications accept up to two arguments:
 
-@EXAMPLE_ARGS_EXPLANATION@
+1.  The `<domain_id>`. Both applications must use the same domain ID in order to
+    communicate. The default is 0.
+
+2.  How long the examples should run, measured in samples. The default is
+    infinite.
+
+### Interconnection between this example and *Shapes Demo* tool
+
+First of all, remember that you have to work in the same domain both in *Shape
+Demo* and your command prompt.
+
+1.  Publish using this example and subscribe using *Shapes Demo*:
+
+    1.  Open a new *Shapes Demo* window.
+
+    2.  Create a new Square subscriber with default options.
+
+    3.  Run the publisher in a new command prompt like explained before (use the
+        `<sample #>` = 0 option to run an indefinitely).
+
+        You will see a Square moving from left to right. Also, its size will
+        increase until it reaches a maximum size. When the max size or the end
+        of the canvas are reached, it restarts.
+
+2.  Subscribe using this example and publish using *Shapes Demo*:
+
+3.  Open a new command prompt and create a new subscriber like explained before.
+
+4.  Create a publisher (Square) in *Shapes Demo*.
+
+    You will see the full description of the data published by *Shapes Demo* in
+    your command prompt.
 
 ## Customizing the Build
 
@@ -123,7 +154,7 @@ to:
 
 You will find the definition of connextdds_add_example, along with detailed
 documentation, in
-[resources/cmake/ConnextDdsAddExample.cmake](../../../../resources/cmake/ConnextDdsAddExample.cmake).
+[resources/cmake/ConnextDdsAddExample.cmake](../../../resources/ConnextDdsAddExample.cmake).
 
 For a more comprehensive example on how to build an RTI Connext DDS application
 using CMake, please refer to the

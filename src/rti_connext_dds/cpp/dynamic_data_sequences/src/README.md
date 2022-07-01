@@ -1,4 +1,4 @@
-# Example code: Using Dynamic Data to publish and subscribe
+# Example: Sequences in Dynamic Data
 
 ## Building the Example :wrench:
 
@@ -39,14 +39,14 @@ Run the following command from the example directory to execute the application.
 
 On *UNIX* systems:
 
-```bash
-./dynamic_data_union_example
+```sh
+./dynamic_data_sequences
 ```
 
 On *Windows* Systems:
 
-```bash
-dynamic_data_union_example
+```sh
+dynamic_data_sequences
 ```
 
 ## Customizing the Build
@@ -115,7 +115,7 @@ to:
 
 You will find the definition of connextdds_add_example, along with detailed
 documentation, in
-[resources/cmake/ConnextDdsAddExample.cmake](../../../../resources/cmake/ConnextDdsAddExample.cmake).
+[resources/cmake/ConnextDdsAddExample.cmake](../../../resources/ConnextDdsAddExample.cmake).
 
 For a more comprehensive example on how to build an RTI Connext DDS application
 using CMake, please refer to the
