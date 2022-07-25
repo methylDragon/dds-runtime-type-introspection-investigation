@@ -4,7 +4,7 @@
 # must display this notice unaltered.
 # This code contains trade secrets of Real-Time Innovations, Inc.
 cmake_minimum_required(VERSION 3.11)
-project(cpp-rtiexamples-connext-dds)
+project(rtiexamples-connext-dds)
 set(CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
     "${CMAKE_CURRENT_SOURCE_DIR}/resources/cmake"
@@ -59,6 +59,11 @@ set(example_subdirs
   "cpp/dynamic_data_nested_structs"
   "cpp/dynamic_data_request_reply"
   "cpp/dynamic_data_sequences"
+
+  "c/dynamic_data_using_publisher_subscriber"
+  "c/dynamic_data_access_union_discriminator"
+  "c/dynamic_data_nested_structs"
+  "c/dynamic_data_sequences"
 )
 
 connextdds_add_examples_subdirectories(
